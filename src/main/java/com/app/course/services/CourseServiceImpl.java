@@ -1,6 +1,7 @@
 package com.app.course.services;
 
 import com.app.course.course.Course;
+import com.app.course.model.CourseResponse;
 import com.app.course.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,5 +45,11 @@ public class CourseServiceImpl implements CourseService{
     @Override
     public Course updateCourse(Course course) {
         return courseRepository.save(course);
+    }
+
+    @Override
+    public CourseResponse delete(long courseId) {
+        courseRepository.deleteById(courseId);
+        return new CourseResponse("Course Deleted successfully");
     }
 }
