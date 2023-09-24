@@ -42,4 +42,10 @@ public class MyController {
     public Course updateCourse(@RequestBody Course course){
         return courseService.updateCourse(course);
     }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/courses/{courseId}")
+    public Course getCourse(@PathVariable long courseId){
+        return courseService.getCourse(courseId);
+    }
 }
